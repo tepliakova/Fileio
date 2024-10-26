@@ -1,5 +1,4 @@
-from http.client import responses
-from importlib.metadata import files
+
 from tkinter import *
 from tkinter import filedialog as fd
 from tkinter import messagebox as mb
@@ -52,12 +51,11 @@ def show_history():
 
     links_listbox = Listbox(history_window, width=50, height=20)
     links_listbox.grid(row=0, column=1, padx=(0, 10), pady=10)
-
-     with open(history_file, 'r') as f:
+    with open(history_file, 'r') as f:
          history = json.load(f)
          for item in history:
-            files_listbox.insert(END, item['file_path'])
-            links_listbox.insert(END, item['download_link'])
+             files_listbox.insert(END, item['file_path'])
+             links_listbox.insert(END, item['download_link'])
 
 
 window = Tk()
